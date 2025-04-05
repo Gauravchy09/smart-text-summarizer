@@ -1,0 +1,192 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/mainLayout"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#FFFFFF"
+    tools:context=".MainActivity">
+
+    <ScrollView
+        android:id="@+id/scrollView"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:fillViewport="true"
+        android:padding="24dp"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:gravity="center_horizontal">
+
+            <TextView
+                android:text="🧠 Smart Text Summarizer"
+                android:textSize="26sp"
+                android:textStyle="bold"
+                android:textColor="#1C1C1C"
+                android:layout_marginBottom="20dp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:fontFamily="sans-serif-medium" />
+
+            <EditText
+                android:id="@+id/inputText"
+                android:hint="Paste your paragraph here..."
+                android:minHeight="160dp"
+                android:gravity="top|start"
+                android:padding="16dp"
+                android:textSize="16sp"
+                android:background="@android:drawable/editbox_background_normal"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="12dp"
+                android:inputType="textMultiLine"
+                android:scrollbars="vertical" />
+
+            <RadioGroup
+                android:id="@+id/formatGroup"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:layout_marginBottom="20dp">
+
+                <RadioButton
+                    android:id="@+id/paraOption"
+                    android:checked="true"
+                    android:text="Paragraph"
+                    android:textSize="15sp"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content" />
+
+                <RadioButton
+                    android:id="@+id/bulletOption"
+                    android:text="Bullet Points"
+                    android:textSize="15sp"
+                    android:layout_marginStart="24dp"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content" />
+            </RadioGroup>
+
+            <SeekBar
+                android:id="@+id/summaryLengthBar"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:max="100"
+                android:progress="60"
+                android:layout_marginBottom="8dp" />
+
+            <TextView
+                android:id="@+id/summaryLengthLabel"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Summary Length: 60%"
+                android:textSize="14sp"
+                android:textColor="#555555"
+                android:layout_marginBottom="16dp" />
+
+            <Button
+                android:id="@+id/summarizeButton"
+                android:text="✨ Summarize"
+                android:textAllCaps="false"
+                android:textSize="16sp"
+                android:layout_marginBottom="16dp"
+                android:backgroundTint="#6200EE"
+                android:textColor="#FFFFFF"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content" />
+
+            <Button
+                android:id="@+id/pdfButton"
+                android:text="📄 Load PDF"
+                android:textAllCaps="false"
+                android:textSize="15sp"
+                android:layout_marginBottom="24dp"
+                android:backgroundTint="#795548"
+                android:textColor="#FFFFFF"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content" />
+
+            <TextView
+                android:id="@+id/outputSummary"
+                android:text="Your summary will appear here..."
+                android:textSize="16sp"
+                android:textColor="#1A1A1A"
+                android:padding="20dp"
+                android:layout_marginBottom="24dp"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@android:drawable/dialog_holo_light_frame"
+                android:elevation="3dp"
+                android:lineSpacingExtra="8dp"
+                android:fontFamily="sans-serif"
+                android:textIsSelectable="true" />
+
+            <LinearLayout
+                android:orientation="horizontal"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:layout_marginBottom="12dp">
+
+                <Button
+                    android:id="@+id/copyButton"
+                    android:text="📋 Copy"
+                    android:textAllCaps="false"
+                    android:textSize="15sp"
+                    android:backgroundTint="#4CAF50"
+                    android:textColor="#FFFFFF"
+                    android:layout_weight="1"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content" />
+
+                <Button
+                    android:id="@+id/downloadButton"
+                    android:text="⬇️ Download"
+                    android:textAllCaps="false"
+                    android:textSize="15sp"
+                    android:backgroundTint="#03A9F4"
+                    android:textColor="#FFFFFF"
+                    android:layout_marginStart="12dp"
+                    android:layout_weight="1"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:orientation="horizontal"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center">
+
+                <Button
+                    android:id="@+id/shareButton"
+                    android:text="📤 Share"
+                    android:textAllCaps="false"
+                    android:textSize="15sp"
+                    android:backgroundTint="#FF9800"
+                    android:textColor="#FFFFFF"
+                    android:layout_weight="1"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content" />
+
+                <Button
+                    android:id="@+id/ttsButton"
+                    android:text="🔊 Listen"
+                    android:textAllCaps="false"
+                    android:textSize="15sp"
+                    android:backgroundTint="#9C27B0"
+                    android:textColor="#FFFFFF"
+                    android:layout_marginStart="12dp"
+                    android:layout_weight="1"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content" />
+            </LinearLayout>
+        </LinearLayout>
+    </ScrollView>
+</androidx.constraintlayout.widget.ConstraintLayout>
